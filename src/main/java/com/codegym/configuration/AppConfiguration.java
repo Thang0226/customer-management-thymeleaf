@@ -1,5 +1,7 @@
 package com.codegym.configuration;
 
+import com.codegym.service.CustomerService;
+import com.codegym.service.ICustomerService;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -50,5 +52,10 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
 		viewResolver.setTemplateEngine(templateEngine());
 		viewResolver.setCharacterEncoding("UTF-8");
 		return viewResolver;
+	}
+
+	@Bean
+	public ICustomerService customerService() {
+		return new CustomerService();
 	}
 }
